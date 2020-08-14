@@ -13,6 +13,10 @@ FILE_VERSION=20200814
 # stop and remove container, if it exists
 docker stop higlass-container || true && docker rm higlass-container || true
 
+# remove previously ingested data
+rm -f ~/hg-data/db.sqlite3
+rm -rf ~/hg-data/log ~/hg-data/media
+
 
 docker run --name higlass-container \
            --publish $PORT:80 \
@@ -26,15 +30,18 @@ docker exec higlass-container python higlass-server/manage.py ingest_tileset \
             --filetype chromsizes-tsv \
             --datatype chromsizes \
             --coordSystem hg38
+            --uid chromsizes_hg38
 
 docker exec higlass-container python higlass-server/manage.py ingest_tileset \
             --filename /data/transcripts_$FILE_VERSION.beddb \
-            --filetype beddb --coordSystem hg38 \
+            --filetype beddb \
+            --coordSystem hg38 \
             --datatype gene-annotation \
             --uid transcripts_$FILE_VERSION
 
 docker exec higlass-container python higlass-server/manage.py ingest_tileset \
             --filename /data/canonical_transcripts_$FILE_VERSION.beddb \
-            --filetype beddb --coordSystem hg38 \
+            --filetype beddb \
+            --coordSystem hg38 \
             --datatype gene-annotation \
             --uid canonical_transcripts_$FILE_VERSION
