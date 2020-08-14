@@ -29,7 +29,7 @@ docker exec higlass-container python higlass-server/manage.py ingest_tileset \
             --filename /data/hg38_full.txt \
             --filetype chromsizes-tsv \
             --datatype chromsizes \
-            --coordSystem hg38
+            --coordSystem hg38 \
             --uid chromsizes_hg38
 
 docker exec higlass-container python higlass-server/manage.py ingest_tileset \
