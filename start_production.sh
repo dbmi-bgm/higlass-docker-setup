@@ -15,7 +15,7 @@ docker stop higlass-container || true && docker rm higlass-container || true
 
 # remove previously ingested data
 rm -f ~/hg-data/db.sqlite3
-rm -rf ~/hg-data/log ~/hg-data/media
+rm -rf ~/hg-data/media
 
 
 docker run --name higlass-container \
