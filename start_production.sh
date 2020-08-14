@@ -10,10 +10,10 @@ IMAGE=higlass/higlass-docker:$DOCKER_VERSION
 PORT=80
 FILE_VERSION=20200814
 
-# stop all containers
-docker ps -a -q | xargs sudo docker stop
-# remove all containers
-docker ps -a -q | xargs sudo docker rm
+# stop container
+docker stop higlass-container
+# remove container
+docker rm higlass-container
 
 
 docker run --name higlass-container \
