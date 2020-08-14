@@ -1,2 +1,2 @@
 # higlass-docker-setup
-Higlass server setupt for CGAP
+Higlass server setup for CGAP.
