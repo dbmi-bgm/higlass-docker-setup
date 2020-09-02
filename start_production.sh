@@ -46,3 +46,10 @@ docker exec higlass-container python higlass-server/manage.py ingest_tileset \
             --coordSystem hg38 \
             --datatype gene-annotation \
             --uid canonical_transcripts_hg38
+
+# ClinVar data version 20200824
+docker exec higlass-container python higlass-server/manage.py ingest_tileset \
+            --filename /data/clinvar_$FILE_VERSION.beddb \
+            --filetype beddb \
+            --datatype bedlike \
+            --uid clinvar_20200824_hg38
