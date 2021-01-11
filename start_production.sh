@@ -41,11 +41,11 @@ docker exec higlass-container python higlass-server/manage.py ingest_tileset \
             --uid transcripts_hg38
 
 docker exec higlass-container python higlass-server/manage.py ingest_tileset \
-            --filename /data/canonical_transcripts_$FILE_VERSION.beddb \
+            --filename /data/orthologs_transcripts_$FILE_VERSION.beddb \
             --filetype beddb \
             --coordSystem hg38 \
             --datatype gene-annotation \
-            --uid canonical_transcripts_hg38
+            --uid orthologs_transcripts_hg38
 
 docker exec higlass-container python higlass-server/manage.py ingest_tileset \
             --filename /data/gene-annotations-hg38.db \
