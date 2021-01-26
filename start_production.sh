@@ -67,3 +67,10 @@ docker exec higlass-container python higlass-server/manage.py ingest_tileset \
             --filetype beddb \
             --datatype bedlike \
             --uid clinvar_20200824_hg38
+
+docker exec higlass-container python higlass-server/manage.py ingest_tileset \
+            --filename /data/gnomad.r3.0.1.median.coverage.bw \
+            --filetype bigwig \
+            --datatype vector \
+            --coordSystem hg38 \
+            --uid gnomad_coverage
