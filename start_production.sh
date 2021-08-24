@@ -3,8 +3,8 @@ set -e
 set -v
 
 # DOCKER_VERSION is the version of higlass/higlass-docker
-# docker pull higlass/higlass-docker:v0.6.51
-DOCKER_VERSION=v0.6.51
+# docker pull higlass/higlass-docker:v0.8.7
+DOCKER_VERSION=v0.8.7
 IMAGE=higlass/higlass-docker:$DOCKER_VERSION
 PORT=80
 FILE_VERSION=20200814
