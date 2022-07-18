@@ -14,7 +14,9 @@ docker stop higlass-container || true && docker rm higlass-container || true
 
 # remove previously ingested data
 rm -f ~/hg-data/db.sqlite3
-rm -rf ~/hg-data/media ~/hg-data/media
+rm -rf ~/hg-data/media
+
+sleep 5
 
 docker run --name higlass-container \
            --publish $PORT:80 \
@@ -24,7 +26,7 @@ docker run --name higlass-container \
            $IMAGE
 
 # We have to wait to make sure the container is properly running
-sleep 2
+sleep 5
 
 docker exec higlass-container python higlass-server/manage.py ingest_tileset \
             --filename /data/hg38_full.txt \
